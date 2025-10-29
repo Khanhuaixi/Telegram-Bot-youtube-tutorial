@@ -22,10 +22,9 @@ export default async function handler(req, res) {
     else if (text.startsWith("/ping")){
       await pingCommand(chatId);
     }
-    // else if (text.startsWith("/cricket")) { //ignore this command for now
-    //   await cricketCommand(chatId);
-    // }  
-    
+    else if (text.startsWith("/cricket")) { //ignore this command for now
+      await cricketCommand(chatId);
+    }  
     else {
       await sendMessage(chatId,text);
     }
