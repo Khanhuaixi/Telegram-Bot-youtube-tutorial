@@ -12,8 +12,12 @@ const live_match_controller = async () => {
 
     let series_array = [];
 
-    $('div.cb-rank-tabs').each(function () {
+    console.log("Starting to parse live match data...");
+
+    $('div.cb-rank-tabs').each(function () { 
         const parent = $(this);
+
+        console.log("parent length: ", parent.children().length);
 
         parent.children().each(function () {
             const children = $(this);
@@ -107,6 +111,8 @@ const live_match_controller = async () => {
                     })
                 });
 
+                console.log("series_name: ", series_name);
+
                 if (series_name) {
                     series_array.push({
                         series_name,
@@ -121,6 +127,7 @@ const live_match_controller = async () => {
 
     })
 
+    console.log("series_array: ", series_array);
 
     return (series_array);
 
@@ -128,6 +135,7 @@ const live_match_controller = async () => {
 }
   
 async function getLiveScores(data,chatId) {
+    console.log("in getLiveScores: ", data);
     for (let i = 0; i < data.length; i++) {
         const series = data[i];
         console.log("in series");
@@ -160,6 +168,8 @@ async function getLiveScores(data,chatId) {
         }
     
         liveScores += `\n`;
+        console.log("Sending live scores for series:", series.series_name);
+        console.log(liveScores);
         await sendMessage(chatId, liveScores);
     }
     

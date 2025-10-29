@@ -11,6 +11,7 @@ export const config = {
 
 export default async function handler(req, res) {
   if (req.method=="POST") {
+    console.log("Request Body:", req.body);
     const chatId = req.body.message.chat.id;
     const text = req.body.message.text;
     console.log("ChatID", chatId);
@@ -21,13 +22,14 @@ export default async function handler(req, res) {
     else if (text.startsWith("/ping")){
       await pingCommand(chatId);
     }
-    else if (text.startsWith("/cricket")) {
-      await cricketCommand(chatId);
-    } 
+    // else if (text.startsWith("/cricket")) { //ignore this command for now
+    //   await cricketCommand(chatId);
+    // }  
+    
     else {
       await sendMessage(chatId,text);
     }
-    res.status(200).send("OK")
+    res.status(200).send("OK") //important to send 200 response to telegram
   } else {
       res.setHeader('Allow', ['POST']);
       res.status(500).send('Method Not Allowed');
