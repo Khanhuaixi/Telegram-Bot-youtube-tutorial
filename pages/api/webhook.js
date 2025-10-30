@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const text = req.body.message.text;
     console.log("ChatID", chatId);
     console.log("text", text);
-    if (text.startsWith("/startt") || text.startsWith("/help") ) {
+    if (text.startsWith("/start") || text.startsWith("/help") ) {
       await helpCommand(chatId)
     }
     else if (text.startsWith("/ping")){
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     //   await cricketCommand(chatId);
     // }  
     else if (text.startsWith("/gallery")) {
-      await sendVideoByUrlCommand(chatId, "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4", "Sample Video from Gallery");
+      await sendVideoByUrlCommand(chatId, "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4", "Sample Video from Gallery");
     }  
     else {
       await sendMessage(chatId,text);

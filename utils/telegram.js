@@ -31,9 +31,9 @@ export async function sendVideoByUrl(chatid, videoUrl, caption = "") {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             chat_id: chatid,
-            video: videoUrl,           // public https://...mp4
-            caption,                   // optional
-            supports_streaming: true   // good for mp4 to allow streaming playback
+            video: videoUrl,          
+            caption,                  
+            supports_streaming: true   
         }),
         });
         if (!res.ok) console.log("sendVideo failed:", await res.text());
