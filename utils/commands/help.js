@@ -10,6 +10,8 @@ export async function helpCommand(chatId){
 /ping - Ping Pong bot
 
 /cricket - Live Cricket Updates
+
+/gallery - Get a sample video from gallery
 `
     await sendMessage(chatId,msg)
 }
