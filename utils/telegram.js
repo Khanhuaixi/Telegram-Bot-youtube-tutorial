@@ -56,8 +56,8 @@ export async function sendMessageWithInlineKeyboard(chatid, text) {
                 reply_markup: {
                     inline_keyboard: [
                         [
-                            { "text": "✅ Confirm", "callback_data": "confirm" },
-                            { "text": "❌ Cancel", "callback_data": "cancel" },
+                            { "text": "✅ Confirm" },
+                            { "text": "❌ Cancel" },
                         ],
                         [
                             { "text": "🌐 Open Website", "url": "https://example.com" }
