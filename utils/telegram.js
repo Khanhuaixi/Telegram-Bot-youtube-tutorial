@@ -53,7 +53,7 @@ export async function sendMessageWithInlineKeyboard(chatid, text) {
             body: JSON.stringify({
                 chat_id: chatid,
                 text: text,
-                reply_markup: json.dumps({
+                reply_markup: {
                     inline_keyboard: [
                         [
                             { "text": "✅ Confirm", "callback_data": "confirm" },
@@ -63,7 +63,7 @@ export async function sendMessageWithInlineKeyboard(chatid, text) {
                             { "text": "🌐 Open Website", "url": "https://example.com" }
                         ],
                     ]
-                }),
+                },
             })
         })
         if (!respose.ok) {
